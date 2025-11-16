@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import TemplateCard from './TemplateCard'
 
 export default function Marketplace() {
@@ -52,7 +53,9 @@ export default function Marketplace() {
             ))
           ) : (
             items.map(item => (
-              <TemplateCard key={item.slug} item={item} />
+              <Link key={item.slug} to={`/t/${item.slug}`} className="block">
+                <TemplateCard item={item} />
+              </Link>
             ))
           )}
         </div>
